@@ -7,8 +7,21 @@ Homework 1: Basic Charts
 
 ## Instructions ##
 
-[INSTRUCTIONS: Include instructions on how to run your code. See [`homework0`](../homework0) for an example.]
+The following packages must be installed prior to running this code:
+
+- `ggplot2`
+
+The following datasets are required for the plotting exercise
+
+- `ggplot2`
+
+To run this code, please enter the following commands in R:
+
+```
+library(devtools)
+source_url("https://github.com/manoj-v/msan622/blob/master/homework1/code.R")
+```
 
 ## Discussion ##
 
-Once the code is run, it is setup to display and also save the plots in the current working directory.
+The code is setup to display and also save the plots in the current working directory.
