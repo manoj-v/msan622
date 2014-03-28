@@ -1,9 +1,9 @@
 Homework 1: Basic Charts
 ==============================
 
-| **Name**  | [YOUR NAME]  |
+| **Name**  | MANOJ VENKATESH  |
 |----------:|:-------------|
-| **Email** | [USERNAME]@dons.usfca.edu |
+| **Email** | mvenkatesh@dons.usfca.edu |
 
 ## Instructions ##
 
@@ -11,4 +11,4 @@ Homework 1: Basic Charts
 
 ## Discussion ##
 
-[DISCUSSION: Include a discussion here if required by the assignment.]
+Once the code is run, it is setup to display and also save the plots in the current working directory.
