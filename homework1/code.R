@@ -26,11 +26,13 @@ genre[which(count == 1 & movies$Short == 1)] = "Short"
 eu <- transform(data.frame(EuStockMarkets), time = time(EuStockMarkets))
 
 # Add the Genre column to the movies2 dataframe
-movies$Genre <- genre
+movies$Genre <- movies$Genre <- as.factor(genre)
 
 # Plot1
 plot1 <- ggplot() + geom_point(data=movies, aes(x=budget/1000000, y=rating, col=Genre), shape=1) +
-  xlab("Budget in Millions USD") + xlim(0,250) + ylab("Movie Rating") + ggtitle("Plot1: Rating Vs Budget") +
+  xlab("Budget in Millions USD") + xlim(0,200) + 
+  ylab("Movie Rating") + scale_y_continuous (expand=c(0,0.1))
+  ggtitle("Plot1: Rating Vs Budget") +
   theme(text=element_text(family="Trebuchet MS"), legend.title=element_text(size=12), 
         axis.text = element_text(size=12, colour="black"), axis.title=element_text(size=14, face="bold"))
 plot1
@@ -66,4 +68,3 @@ plot4 <- ggplot(data=eu) + geom_line(aes(x=as.numeric(time), y=DAX, col='DAX')) 
         axis.text = element_text(size=8, colour="black"), axis.title=element_text(size=8, face="bold"))
 plot4
 ggsave(file="hw1-multiline.png", height=4, width=8)
-
