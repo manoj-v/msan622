@@ -25,4 +25,4 @@ source_url("https://github.com/manoj-v/msan622/blob/master/homework1/code.R")
 
 ## Discussion ##
 
-The code is setup to display and also save the plots in the local working directory.
+The code is setup to display and also save the plots in the local working directory. Detailed Discussion in Homework 1.md
