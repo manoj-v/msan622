@@ -15,8 +15,14 @@ data(EuStockMarkets)
 
 Then, perform the following transformations:
 
+<<<<<<< HEAD
 - Filter out any rows that have a `budget` value less than or equal to 0 or an 'NA' in the `movies` dataset. 
   ```
+=======
+- Filter out any rows that have a `budget` value less than or equal to 0 in the `movies` dataset. 
+  ```
+  # Filter out rows with 0, negative or no budget information and remove
+>>>>>>> 6c4c8283b45d1e7c2e4a1555253e1f34129b7136
   idx <- which(movies$budget <=0 | is.na(movies$budget))
   movies <- movies[-idx,]
   ```
@@ -45,18 +51,26 @@ Then, perform the following transformations:
   eu <- transform(data.frame(EuStockMarkets), time = time(EuStockMarkets))
   ```
 
+<<<<<<< HEAD
 Visualizations & Discussion
 ------------------------------
 
 - **Plot 1: Scatterplot.** 
 
 Below is the scatter plot for the movies dataset. With the `budget` as x-axis and the `rating` as the y-axis, i felt it is better to have a color scheme to distinguish the different genres of movies, hence ordered the colors to the data points based on the `Genre` they are categorized as. 
+=======
+Visualizations
+------------------------------
+
+- **Plot 1: Scatterplot.** Produce a scatterplot from the `movies` dataset in the `ggplot2` package, where `budget` is shown on the x-axis and `rating` is shown on the y-axis. Save the plot as `hw1-scatter.png`.
+>>>>>>> 6c4c8283b45d1e7c2e4a1555253e1f34129b7136
 
 ![IMAGE](hw1-scatter.png)
 
 Although the visual is not vastly improved but at the least there is some demarcation between the different genre of movies. The x-axis has been scaled and expressed in millions of USD and a legend added as an aid for identification. Since the number of reviews for *Mixed* are way too many in number, they overlap most of the other genres.
 
 
+<<<<<<< HEAD
 - **Plot 2: Bar Chart.** 
 
 ![IMAGE](hw1-bar.png)
@@ -68,3 +82,9 @@ Although the visual is not vastly improved but at the least there is some demarc
 - **Plot 4: Multi-Line Chart.** 
 
 ![IMAGE](hw1-multiline.png)
+=======
+Discussion
+------------------------------
+
+In your discussion, include each of the four images generated and a brief discussion following each image about the customization performed. For example, how did you use color? Why did you move the legend? (And so on.) The discussion for each image should be limited to a single paragraph with approximately 3 to 5 sentences.
+>>>>>>> 6c4c8283b45d1e7c2e4a1555253e1f34129b7136

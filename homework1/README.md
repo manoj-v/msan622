@@ -13,7 +13,8 @@ The following packages must be installed prior to running this code:
 
 The following datasets are required for the plotting exercise
 
-- `ggplot2`
+- `movies`
+- `EuStockMarkets`
 
 To run this code, please enter the following commands in R:
 
@@ -24,4 +25,4 @@ source_url("https://github.com/manoj-v/msan622/blob/master/homework1/code.R")
 
 ## Discussion ##
 
-The code is setup to display and also save the plots in the current working directory.
+The code is setup to display and also save the plots in the local working directory.
