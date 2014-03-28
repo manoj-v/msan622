@@ -73,8 +73,8 @@ Simple but interesting conclusions can be drawn from the facet plots, we can see
 
 - **Plot 4: Multi-Line Chart.** 
 
-This plot indicates the trend of the EU markets between the years 1991 and 1991. In order to plot the multiline plot, i type cast the timeseries format data *time* to a numeric column during plotting and created a ggplot object on top of it multiple layers of the `geom_line` are used to get the desired time series representation.
+This plot indicates the trend of the EU markets between the years 1991 and 1999. In order to plot the multiline plot, i type cast the timeseries format data *time* to a numeric column during plotting and created a ggplot object on top of it multiple layers of the `geom_line` are used to get the desired time series representation.
 
 ![IMAGE](hw1-multiline.png)
 
-Formatting, in terms of font, text and title sizes have been kept consistent for all the plots and also the color schemes are consistent across the plots. 
+Formatting, in terms of font, text and title sizes have been kept consistent for all the plots and also the color schemes have also been maintained. 
