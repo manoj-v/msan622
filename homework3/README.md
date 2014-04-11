@@ -1,9 +1,9 @@
 Homework [#]: [HOMEWORK NAME]
 ==============================
 
-| **Name**  | [YOUR NAME]  |
+| **Name**  | MANOJ VENKATESH  |
 |----------:|:-------------|
-| **Email** | [USERNAME]@dons.usfca.edu |
+| **Email** | mvenkatesh@dons.usfca.edu |
 
 ## Instructions ##
 
