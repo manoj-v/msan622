@@ -11,10 +11,10 @@ sortChoices2 <- gsub("\\.", " ", colnames(myData)[1:8])
 regions <- levels(myData$Region)
 
 shinyUI(
-  navbarPage("US Viz",collapsable=TRUE,
-             tabPanel("Heatmap!",
+  navbarPage("U.S. Stats",collapsable=TRUE,
+             tabPanel("Heatmap",
                       fluidPage(
-                        titlePanel("State Data"),
+                        titlePanel("US State Facts and Figures"),
                         # Fluid row contains all the controls for input sorting and also the plot
                         fluidRow(
                           sidebarPanel(
@@ -36,9 +36,9 @@ shinyUI(
                                  )
                         )
              ),
-             tabPanel("Scatter Matrix!",
+             tabPanel("Scatter plot matrix",
                       fluidPage(
-                        titlePanel("State Data"),
+                        titlePanel("US State Facts and Figures"),
                         fluidRow(
                           column(2, wellPanel(
                             fluidRow(checkboxGroupInput("smVar", h5("Select variables"), sortChoices2, 
@@ -52,9 +52,9 @@ shinyUI(
                           )
                         )
                       ),
-             tabPanel("Parallel co-ordinates plot!",
+             tabPanel("Parallel coordinates",
                       fluidPage(
-                        titlePanel("State Data"),
+                        titlePanel("US State Facts and Figures"),
                         fluidRow(
                           sidebarPanel(
                             fluidRow(checkboxGroupInput("pcpVar", h5("Select variables"), sortChoices2, 
