@@ -2,14 +2,12 @@ library(ggplot2)
 library(reshape)
 library(plyr)
 library(scales)
+require(GGally)
 
 # Build the dataframe
-myData <- data.frame(state.x77,
-                 State = state.name,
-                 Abbrev = state.abb,
-                 Region = state.region,
-                 Division = state.division
-)
+myData <- data.frame(state.x77, State = state.name, Abbrev = state.abb,
+                     Region = state.region, Division = state.division)
+colnames(myData)[1:8] <- gsub("\\.", "", colnames(myData)[1:8])
 
 scaleMeltData <- function(dataset){
   # Rescale the data by range using rescaler function
@@ -60,6 +58,85 @@ getHeatmap <- function(dataset, colSchm, midrange){
   return(p)
 }
 
+# Generate a scatter plot matrix
+scatterPlot <- function(df, colIdx, colorby){
+  local <- myData
+  p <- ggpairs(local, columns = colIdx, upper="blank",
+               lower=list(continuous="points"),
+               diag=list(continuous="density"),
+               axisLabels="none",
+               color=colorby,
+               title="GGPairs", legends=TRUE)
+  # Below code for formatting legends, gridlines in each of the subplot
+  for (i in 1:length(colIdx)) {
+    # Address only the diagonal elements
+    # Get plot out of matrix
+    inner <- getPlot(p, i, i);
+    # Add any ggplot2 settings you want
+    inner <- inner + theme(panel.grid = element_blank()) +
+      theme(axis.text.x = element_blank())
+    # Put it back into the matrix
+    p <- putPlot(p, inner, i, i)
+    
+    for (j in 1:length(colIdx)){
+      if((i==1 & j==1)){
+        inner <- getPlot(p, i, j)
+        inner <- inner + theme(legend.position=c(length(colIdx)-0.25,0.50)) 
+        p <- putPlot(p, inner, i, j)
+      }
+      else{
+        inner <- getPlot(p, i, j)
+        inner <- inner + theme(legend.position="none")
+        p <- putPlot(p, inner, i, j)
+      }
+    }
+  }
+  p
+}
+
+getpcplot <- function(dataset, colIdx, colorby){
+  p <- ggparcoord(data = myData, 
+                  # Which columns to use in the plot
+                  columns <- colIdx, 
+                  # Which column to use for coloring data
+                  groupColumn = colorby, 
+                  # Allows order of vertical bars to be modified
+                  order = "anyClass",
+                  # Do not show points
+                  showPoints = FALSE,
+                  # Turn on alpha blending for dense plots
+                  alphaLines = 0.6,
+                  # Turn off box shading range
+                  shadeBox = NULL,
+                  # Will normalize each column's values to [0, 1]
+                  scale = "uniminmax" # try "std" also
+  )
+  
+  # Start with a basic theme
+  p <- p + theme_minimal()
+  # Decrease amount of margin around x, y values
+  p <- p + scale_y_continuous(expand = c(0.02, 0.02))
+  p <- p + scale_x_discrete(expand = c(0.02, 0.02))
+  # Remove axis ticks and labels
+  p <- p + theme(axis.ticks = element_blank())
+  p <- p + theme(axis.title = element_blank())
+  p <- p + theme(axis.text.y = element_blank())
+  # Clear axis lines
+  p <- p + theme(panel.grid.minor = element_blank())
+  p <- p + theme(panel.grid.major.y = element_blank())
+  # Darken vertical lines
+  p <- p + theme(panel.grid.major.x = element_line(color = "#bbbbbb"))
+  # Move label to bottom
+  p <- p + theme(legend.position = "bottom")
+  # Figure out y-axis range after GGally scales the data
+  min_y <- min(p$data$value)
+  max_y <- max(p$data$value)
+  pad_y <- (max_y - min_y) * 0.2
+  
+  # Display parallel coordinate plot
+  p
+}
+
 shinyServer(function(input, output) {
   # operate on a local copy of the melted dataset
   # this way, each user has their own "view" and
@@ -90,11 +167,9 @@ shinyServer(function(input, output) {
     print(getHeatmap(local, input$colSchm, input$range))
   })
   output$smplot <- renderPlot({
-    reorderRows()
-    print(getHeatmap(local, input$colSchm, input$range))
-  })
+    print(scatterPlot(myData, input$smVar, input$plotby))
+  }, height="auto")
   output$pcplot <- renderPlot({
-    reorderRows()
-    print(getHeatmap(local, input$colSchm, input$range))
+    print(getpcplot(local, input$pcpVar, input$pcpcolor))
   })
 })
