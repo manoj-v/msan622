@@ -12,6 +12,9 @@ The following packages must be installed prior to running this code:
 - `ggplot2`
 - `shiny`
 - `scales`
+- `plyr`
+- `GGally`
+- `reshape`
 
 To run this code, please enter the following commands in R:
 
@@ -42,8 +45,7 @@ I decided to use the scatterplot matrix as a means of visualizing the correlatio
 
 ![parallelcoordinates](pcplot.png)
 
-Parallel coordinates plot is an interesting tool, it aids in visualizing a high dimensional data in a low dimensional space. But too many dimensions would not very favorable. In this instance it is very useful in understand a variety of information in one single plot. 
-
+Parallel coordinates plot is an interesting tool, it aids in visualizing a high dimensional data in a low dimensional space. But too many dimensions would not very favorable. In this instance it is very useful in understand a variety of information in one single plot. Again taking the example of the south region, we can see that certain variables such as income, education, life expectancy and murder are almost opposite to the rest of the regions. 
 
 ### Interactivity ###
 
