@@ -6,12 +6,12 @@ library(SnowballC)
 book1 <- read.csv('sherlock.csv')
 book2 <- read.csv('olivertwist.csv')
 book3 <- read.csv('dream.csv')
-book4 <- read.csv('olivertwist.csv')
+book4 <- read.csv('autobio.csv')
 
 genBar <- function(df){
   p <- ggplot(df, aes(x = word, y = freq)) +
     geom_bar(stat = "identity", fill="grey60") +
-    xlab("Top Word Stems (Stop Words Removed)") +
+    xlab("Top Words (Stop Words Removed)") +
     ylab("Frequency") +
     theme_minimal() +
     scale_x_discrete(expand = c(0, 0)) +
@@ -24,14 +24,17 @@ genBar <- function(df){
 
 shinyServer(function(input, output) {
   getData <- reactive({
-    if(input$book == 'Book1'){
+    if(input$book == 'book1'){
       df <- book1
     }
-    else if(input$book == 'Book2'){
+    else if(input$book == 'book2'){
       df <- book2
     }
-    else if(input$book == 'Book3'){
+    else if(input$book == 'book3'){
       df <- book3
+    }
+    else if(input$book == 'book4'){
+      df <- book4
     }
     plot <- df[which(df$freq >=input$frange[1] & df$freq <=input$frange[2]),]
     #     plot <- df[which(df$freq >=100 & df$freq <= 200),]
@@ -55,7 +58,7 @@ shinyServer(function(input, output) {
     d <- getData()
     wordcloud_rep(d$word, d$freq, scale=c(7,0.5), min.freq = 1, 
                   max.words=input$frange[2]-input$frange[1],
-                  colors = brewer.pal(9, "GnBu"), random.color = FALSE, 
+                  colors = brewer.pal(9, "Paired"), random.color = FALSE, 
                   use.r.layout = FALSE)
   })
   
