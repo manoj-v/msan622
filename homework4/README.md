@@ -29,7 +29,7 @@ I chose to visualize 3 different texts from project gutenberg, i concentrated ma
 
 ### Technique 1: Word Cloud | Technique 2: Bar Plot
 
-I created this plot using the worcloud package in R. I decided to color the plot because the color matches a frequency, and this makes it clearer the difference between the sizes of the words. The slider allows the user to input the frequency range of the words they want to include the in the cloud and also a radio button is provided to choose between the number of words to be displayed in the wordcloud. I have used the same input controls for barplot too.
+I created this plot using the worcloud package in R. I decided to color the plot because the color matches a frequency, and this makes it clearer the difference between the sizes of the words. The slider allows the user to input the frequency range of the words they want to include in the cloud and also a radio button is provided to choose between the number of words to be displayed in the wordcloud. I have used the same input controls for barplot too.
 
 ![IMAGE](barplot.png)
 
@@ -37,7 +37,7 @@ I created this plot using the worcloud package in R. I decided to color the plot
 
 ![IMAGE](static.png)
 
-I used the manyeyes website to create a wordtree and in the image i have visualized only of the texts i.e. Adventures of Sherlock Holmes.
+I used the manyeyes website to create a wordtree and in the image i have visualized only one of the texts i.e. Adventures of Sherlock Holmes.
 The link to this visualization is below:
 
 http://manyeyes.com/software/analytics/manyeyes/visualizations/sherlockholmes
