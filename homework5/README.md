@@ -8,3 +8,4 @@ Homework 5: Temporal
 ## Instructions ##
 
 ## Discussion ##
+![image](plot1.png)
