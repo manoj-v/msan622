@@ -22,6 +22,7 @@ myData <- data.frame(
 melted <- melt(myData, id=c("Years", "Months", "times"))
 melted
 
+# CREATE A MULTILINE PLOT
 p <- ggplot(subset(melted, variable == "DriversKilled"), 
   aes(x = Months, y = value, group = Years, color = Years)
 )
@@ -35,6 +36,8 @@ p <- p + theme(panel.grid.major.y=element_line(size=0.15, color="grey"))
 p <- p + theme_guide() + theme_legend()
 p
 ggsave(filename="plot1.png")
+
+# ROTATE THE MULTIPLE LINES PLOT TO GET A MULTIPLE STAR PLOT FOR BETTER INTERPRETATION
 p <- p + theme(axis.text.y=element_blank(), axis.ticks.y=element_blank())
 p <- p + coord_polar() + facet_wrap(~Years, nrow=2)
 p <- p + ggtitle("Small Multiple Star Plot")
@@ -49,7 +52,11 @@ p <- ggplot(subset(melted, variable == "DriversKilled"),
             aes(x = Months, y = Years))
 p <- p + geom_tile(aes(fill = value), colour = "white")
 p <- p + scale_fill_gradient(low = "yellow", high = "red")
+p <- p + theme_heatmap()
+p
 ggsave(filename="plot3.png")
+
+# ROTATE THE HEATMAP FOR BETTER INTERPRETATION
 p <- p + coord_polar()
 p <- p + ggtitle("Circular Heatmap")
 p <- p + theme(panel.background=element_blank())
@@ -57,6 +64,7 @@ p <- p + theme(panel.grid=element_blank())
 p <- p + theme(axis.title=element_blank())
 p <- p + theme(axis.ticks=element_blank()) 
 p <- p + annotate("text", x=0, y=-9, label="Years increase outwardly", size=3)
+p <- p + theme_heatmap()
 p
 ggsave(filename="plot4.png")
 

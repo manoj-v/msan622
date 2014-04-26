@@ -64,13 +64,9 @@ scale_prgn <- function() {
 theme_heatmap <- function() {
   return (
     theme(
-      axis.text.y = element_text(
-        angle = 90,
-        hjust = 0.5),
       axis.ticks = element_blank(),
       axis.title = element_blank(),
       legend.direction = "horizontal",
-      legend.position = "bottom",
       panel.background = element_blank()
     )
   )
