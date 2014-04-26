@@ -51,6 +51,6 @@ LIE FACTOR: LOW | DATA DENSITY: LOW | DATA-INK RATIO: HIGH
 ![image](plot4.png)
   To improve on the previous heatmap, i tried the polar coordinate representation of the heatmap, this came out similar to the example circular heatmap. I added an annotation in the middle of the circular heatmap to display text saying the years increase outwardly and the area of the concentric circle doesnot indicate the size of anything. Because of the annotation, there was a split in the circle which somehow worked very well in my case as the dates are not spiral i.e not continous so one gets a clear demarcation between the years instead of appearing as a continous segment.
 
-## THINGS I TRIED BUT DID NOT WORK ##
+#### THINGS I TRIED BUT DID NOT WORK ##
  - I had initially planned to display the relation between the `PetrolPrice` and `kms`, but after looking at the data and the correlations, i could not see any trend and also there was very little change in the `PetrolPrice` over these years.
  - I had also thought of showing the trend in deaths and also a trend in percentage of `front` and `rear` injuries, but decided against it as the plot did not seem that impressive and trying to extract a smooth trend for deaths was challenging. 
