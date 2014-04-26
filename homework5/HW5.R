@@ -68,7 +68,6 @@ p <- p + theme_heatmap() + theme(legend.direction="vertical")
 p
 ggsave(filename="plot4.png")
 
-
 # subsetD <- subset(melted, variable == "DriversKilled")
 # p2 <- ggplot(subsetD, aes(x=times, y=value, fill=value)) +
 #   geom_tile(colour="blue") +
