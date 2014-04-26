@@ -9,3 +9,6 @@ Homework 5: Temporal
 
 ## Discussion ##
 ![image](plot1.png)
+![image](plot2.png)
+![image](plot3.png)
+![image](plot4.png)
