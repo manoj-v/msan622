@@ -43,7 +43,7 @@ p <- p + coord_polar() + facet_wrap(~Years, nrow=2)
 p <- p + ggtitle("Small Multiple Star Plot")
 p <- p + theme(strip.background=element_blank())
 p <- p + theme(panel.border=element_blank())
-p <- p + theme(axis.text.x=element_text(size=10))
+# p <- p + theme(axis.text.x=element_text(size=10))
 p
 ggsave(filename="plot2.png")
 
@@ -64,7 +64,7 @@ p <- p + theme(panel.grid=element_blank())
 p <- p + theme(axis.title=element_blank())
 p <- p + theme(axis.ticks=element_blank()) 
 p <- p + annotate("text", x=0, y=-9, label="Years increase outwardly", size=3)
-p <- p + theme_heatmap()
+p <- p + theme_heatmap() + theme(legend.direction="vertical")
 p
 ggsave(filename="plot4.png")
 

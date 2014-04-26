@@ -66,7 +66,6 @@ theme_heatmap <- function() {
     theme(
       axis.ticks = element_blank(),
       axis.title = element_blank(),
-      legend.direction = "horizontal",
       panel.background = element_blank()
     )
   )
