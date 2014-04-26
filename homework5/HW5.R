@@ -2,7 +2,8 @@ library(ggplot2)
 library(reshape2)
 source("pretty.r")
 
-# extract Years for grouping later
+# Extract time for grouping later
+# From time extract Months and Calendar Year
 times <- time(Seatbelts)
 Years <- factor(floor(times), ordered = TRUE)
 Months <- factor(month.abb[cycle(times)],levels = month.abb,ordered = TRUE)
