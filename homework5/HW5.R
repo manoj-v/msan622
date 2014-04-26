@@ -39,7 +39,7 @@ ggsave(filename="plot1.png")
 
 # ROTATE THE MULTIPLE LINES PLOT TO GET A MULTIPLE STAR PLOT FOR BETTER INTERPRETATION
 p <- p + theme(axis.text.y=element_blank(), axis.ticks.y=element_blank())
-p <- p + coord_polar() + facet_wrap(~Years, nrow=2)
+p <- p + coord_polar() + facet_wrap(~Years, nrow=4)
 p <- p + ggtitle("Small Multiple Star Plot")
 p <- p + theme(strip.background=element_blank())
 p <- p + theme(panel.border=element_blank())
