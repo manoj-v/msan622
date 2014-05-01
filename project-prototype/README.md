@@ -30,7 +30,7 @@ shiny::runGitHub('msan622', 'manoj-v', subdir='project-prototype')
 ```
 
 #### DATA SOURCES
- - Gapminder website
+ - Gapminder website ('http://www.gapminder.org/data/')
  - Google Search
 
 ### The code for processing the data
