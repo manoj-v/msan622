@@ -11,7 +11,7 @@ The following packages are used in generating the plots:
 - `ggplot2`
 - `reshape2`
 
-The source code is available at `https://github.com/manoj-v/msan622/tree/master/homework5/HW5.R`
+The source code is available at [source](https://github.com/manoj-v/msan622/tree/master/homework5/HW5.R)
 
 ```
 # Extract time for grouping later
