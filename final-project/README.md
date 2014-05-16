@@ -16,7 +16,8 @@ The `Shiny` app needs the following packages to be installed to run.
 To run this code, please enter the following commands in R:
 ```
 library(shiny)
-source_url("https://github.com/manoj-v/msan622/blob/master/final-project")
+shiny::runGitHub('msan622', 'manoj-v', subdir='final-project')
+source_url("https://github.com/manoj-v/msan622/blob/master/final-project/rcharts_interactive_area.R")
 ```
 ## Discussion ##
 I have tried to visualize world population projections till 2050, the data  is from the `Gapminder` website and processed further to bring it to a plottable format. Multiple such data sources have been combined to get a more wholistic view of how different continents/regions/countries demographies are changing with respect to life expectancy, per capita income and fertility. I have 3 visualizations in the shiny app and the 4th one which i created using the `Rickshaw` charts part of `rCharts` package failed to integrate into the shiny app. I have created a separate file for that visualization, where the user after running the R code will be able to interact with the app in a web browser. 
@@ -51,7 +52,7 @@ Through this plot i aim to help the user understand or visualize how the distrib
 ![Rickshaw](plot4.png)
 This is not part of the shiny app, it is included as a separate file in the folder. This would not integrate very well with the existing shiny app so i had to create a standalone visualization which is still interactive and has few but very good interactive features. When viewed first time, the plot looks static, but the slider, the legend and the tooltips make it an interesting plot to view. One would argue that this is similar to the time series plot in technique 2, but i would say this improves on that plot by a great deal and providing very useful interactivity. 
 
-The user can use the slider to zoom in and zoom out of the entire time frame. Just by moving the sliders, the users can get a zoom in effect and also using the tick marks which are  
+The user can use the slider to zoom in and zoom out of the entire time frame. Just by moving the sliders, the users can get a zoom in effect and also using the tick marks on the legend, the user can choose the continents wants to view.  
 
 
 ### Interactivity ###
