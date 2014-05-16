@@ -5,6 +5,7 @@ shinyUI(pageWithSidebar(
     
     conditionalPanel(
       condition="input.conditionedPanels==2",
+      h4("Data selection options"),
       selectInput('xvar', 'X-Axis:',
                   c('Fertility'='fert','Life Expectancy'='lifexp','F/M Ratio' = 'fmr',
                     'GDP'='totgdpb', 'Population Density'='popdens', 'Population' = 'totalpop', 
@@ -21,14 +22,17 @@ shinyUI(pageWithSidebar(
                     'Area' = 'areaSqkm'),
                   selected='fmr'),
       br(),
+      br(),
       sliderInput("larea", h5("Land Area (Million SQ. Km) greater than:"), 
                   min = 0, max = 17, value = 2),
       br(),
-      sliderInput("start", "Starting Point:",
+      sliderInput("start", h5("Starting Point:"),
                   min = 1950, max = 2050,value = 1980, step = 1,
                   round = FALSE, ticks = TRUE, format = "####.##",
                   animate = animationOptions(interval = 1000, loop = TRUE)),
-      radioButtons('bcol', 'Color bubbles by:',
+      br(),
+      br(),
+      radioButtons('bcol', h5('Color bubbles by:'),
                    c('continent','region', 'country'),
                    selected='country'),
       width = 3
@@ -64,16 +68,21 @@ shinyUI(pageWithSidebar(
   mainPanel(
     width=9,
     tabsetPanel(
-      tabPanel("Bubble Plot",
+      tabPanel("The Bubble!!",
                value=2,
                showOutput("bubble", "highcharts"),
                wellPanel(
-                 h5(helpText("This is a test message")),
-                 helpText("This is a test message")
+                 h5(helpText("About the data")),
+                 helpText("The data is sourced from the gapminder website and each of the columns have different definitions and descriptions; namely"),
+                 helpText("1. Area in Square KMs"),
+                 helpText("2. Population & Population Density - As the name suggests, it indicates the sum of male and female populations in each of the countries, the population density measure indicates the population per Square KM of land area"),
+                 helpText("3. Life Expectancy - The average number of years a newborn child would live if current mortality patterns were to stay the same."),
+                 helpText("4. Fertility - The number of children that would be born to each woman with prevailing age-specific fertility rates."),
+                 helpText("5. Female to Male ratio - The number of females for each male")
                  )
                
       ),
-      tabPanel("Time Series Plot",
+      tabPanel("Asia and Africa rising",
                value=1,
                plotOutput(outputId = "mainPlot", width = "100%",  height = "400px"),
                br(),

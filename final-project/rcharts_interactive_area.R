@@ -20,4 +20,4 @@ getArea <- function(df, plottype, colschm){
 
 df <- aggredata()
 
-getArea(df, "line", "cool")
+getArea(df, "area", "cool")
